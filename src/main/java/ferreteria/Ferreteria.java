@@ -4,7 +4,7 @@
 
 package ferreteria;
 
-import Vista.Vista_Facturacion;
+import Vista.Vista_Inicio;
 
 /**
  *
@@ -12,7 +12,7 @@ import Vista.Vista_Facturacion;
  */
 public class Ferreteria {
     public static void main(String[] args) {
-       Vista_Facturacion v = new Vista_Facturacion();
+       Vista_Inicio v = new Vista_Inicio();
        v.setTitle("nuevo Contacto");
        v.setVisible(true);
     }

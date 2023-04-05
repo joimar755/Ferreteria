@@ -9,6 +9,6 @@ package Modelo;
  * @author joimar
  */
 public class Modelo_Cliente {
-    private String  Telefono; 
-    private String Correo; 
+    private String Telefono;
+    private String Correo;
 }
