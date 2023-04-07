@@ -14,11 +14,11 @@ public class Modelo_Persona {
      private int  Id;
      private String Nombre;
      private String Apellido;
-     private String Cedula;
+     private int Cedula;
      private Date Fecha_Nac;
      
 
-    public Modelo_Persona(int Id, String Nombre, String Apellido, String Cedula, Date Fecha_Nac) {
+    public Modelo_Persona(int Id, String Nombre, String Apellido, int Cedula, Date Fecha_Nac) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Apellido = Apellido;
@@ -54,11 +54,11 @@ public class Modelo_Persona {
         this.Apellido = Apellido;
     }
 
-    public String getCedula() {
+    public int getCedula() {
         return Cedula;
     }
 
-    public void setCedula(String Cedula) {
+    public void setCedula(int Cedula) {
         this.Cedula = Cedula;
     }
 
