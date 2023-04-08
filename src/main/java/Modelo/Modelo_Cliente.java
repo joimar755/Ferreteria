@@ -15,7 +15,7 @@ public class Modelo_Cliente extends Modelo_Persona{
     private String Correo; 
     private String Direccion;
 
-    public Modelo_Cliente(String Telefono, String Correo, String Direccion, int Id, String Nombre, String Apellido, String Cedula, Date Fecha_Nac) {
+    public Modelo_Cliente(String Telefono, String Correo, String Direccion, int Id, String Nombre, String Apellido, int Cedula, Date Fecha_Nac) {
         super(Id, Nombre, Apellido, Cedula, Fecha_Nac);
         this.Telefono = Telefono;
         this.Correo = Correo;

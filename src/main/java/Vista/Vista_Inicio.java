@@ -40,10 +40,18 @@ public class Vista_Inicio extends javax.swing.JFrame {
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jMenuBar2 = new javax.swing.JMenuBar();
         Btn_Inicio = new javax.swing.JMenu();
         Registro_Tercero = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -72,6 +80,12 @@ public class Vista_Inicio extends javax.swing.JFrame {
         jMenu7.setText("Edit");
         jMenuBar3.add(jMenu7);
 
+        jMenu2.setText("File");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar1.add(jMenu3);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Btn_Inicio.setText("Inicio");
@@ -88,6 +102,23 @@ public class Vista_Inicio extends javax.swing.JFrame {
 
         jMenu5.setText("Edit");
         jMenuBar2.add(jMenu5);
+
+        jMenu4.setText("Registro");
+        jMenuBar2.add(jMenu4);
+
+        jMenu8.setText("Comercial");
+
+        jMenuItem6.setText("Factura");
+        jMenu8.add(jMenuItem6);
+
+        jMenuBar2.add(jMenu8);
+
+        jMenu9.setText("Inventarios");
+
+        jMenuItem7.setText("Consulta Productos");
+        jMenu9.add(jMenuItem7);
+
+        jMenuBar2.add(jMenu9);
 
         setJMenuBar(jMenuBar2);
 
@@ -106,7 +137,7 @@ public class Vista_Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Registro_TerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Registro_TerceroActionPerformed
-        Vista_Facturacion f = new Vista_Facturacion();
+        Vista_Nuevo_Contacto f = new Vista_Nuevo_Contacto();
         f.setTitle("Registro_Tercero");
         f.setVisible(true);
     }//GEN-LAST:event_Registro_TerceroActionPerformed
@@ -152,9 +183,15 @@ public class Vista_Inicio extends javax.swing.JFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
@@ -162,6 +199,8 @@ public class Vista_Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;

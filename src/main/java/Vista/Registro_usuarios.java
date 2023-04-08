@@ -4,24 +4,20 @@
  */
 package Vista;
 
-import Modelo.Modelo_Usuarios;
-import Modelo.Sql_usuarios;
-import Modelo.hash;
-import static java.util.Objects.hash;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author joimar
  */
-public class Regitro_usuarios extends javax.swing.JFrame {
+public class Registro_usuarios extends javax.swing.JFrame {
 
     /**
      * Creates new form Regitro_usuarios
      */
-    public Regitro_usuarios() {
+    public Registro_usuarios() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,9 +43,9 @@ public class Regitro_usuarios extends javax.swing.JFrame {
         Txt_contraseña = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         Txt_confirmar = new javax.swing.JPasswordField();
-        Btn_registrar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         cbx_Tipo_Users = new javax.swing.JComboBox<>();
+        Btn_crear = new javax.swing.JButton();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -76,16 +72,16 @@ public class Regitro_usuarios extends javax.swing.JFrame {
 
         jLabel7.setText("Confirmar Contraseña");
 
-        Btn_registrar.setText("Registrar");
-        Btn_registrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_registrarActionPerformed(evt);
-            }
-        });
-
         jLabel8.setText("Tipo Usuarios");
 
         cbx_Tipo_Users.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "users", " " }));
+
+        Btn_crear.setText("Registrar");
+        Btn_crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_crearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,20 +101,20 @@ public class Regitro_usuarios extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(Cbx_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Btn_registrar)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6)
                             .addComponent(Txt_contraseña)
                             .addComponent(jLabel7)
                             .addComponent(Txt_confirmar, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                             .addComponent(jLabel8)
-                            .addComponent(cbx_Tipo_Users, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(31, Short.MAX_VALUE))))
+                            .addComponent(cbx_Tipo_Users, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(Btn_crear)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +148,7 @@ public class Regitro_usuarios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Txt_Cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Btn_registrar))
+                    .addComponent(Btn_crear))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,36 +163,10 @@ public class Regitro_usuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Cbx_TipoActionPerformed
 
-    private void Btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_registrarActionPerformed
-        Sql_usuarios ModSql = new Sql_usuarios();
-        Modelo_Usuarios usuarios = new Modelo_Usuarios();
-        
-        String Pass = new String(Txt_contraseña.getPassword());
-        String ValPass = new String(Txt_confirmar.getPassword());
-        if (Pass.equals(ValPass)) {
-            int Tipo_users = cbx_Tipo_Users.getSelectedIndex()+1;
-            String NuevoPass = hash.sha1(Pass);
-            usuarios.setNombre(Txt_nombre.getText());
-            usuarios.setApellido(Txt_apellido.getText());
-            usuarios.setTipo_Doc(Cbx_Tipo.getSelectedItem().toString());
-            int Cedula = Integer.parseInt(Txt_Cedula.getText());
-            usuarios.setCedula(Cedula);
-            usuarios.setCorreo(Txt_Correo.getText());
-            usuarios.setPassword(NuevoPass);
-            usuarios.setTipo_user(Tipo_users);
-            if (ModSql.registrar(usuarios)) {
-                JOptionPane.showMessageDialog(null, "registradp correctamente");
-            } else {
-                JOptionPane.showMessageDialog(null, "no registradp correctamente");
-
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "la contraseña no coinciden");
-        }
-
-    }//GEN-LAST:event_Btn_registrarActionPerformed
-
+    private void Btn_crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_crearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_crearActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -214,34 +184,35 @@ public class Regitro_usuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Regitro_usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro_usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Regitro_usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro_usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Regitro_usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro_usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Regitro_usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Registro_usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Regitro_usuarios().setVisible(true);
+                new Registro_usuarios().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_registrar;
-    private javax.swing.JComboBox<String> Cbx_Tipo;
-    private javax.swing.JTextField Txt_Cedula;
-    private javax.swing.JTextField Txt_Correo;
-    private javax.swing.JTextField Txt_apellido;
-    private javax.swing.JPasswordField Txt_confirmar;
-    private javax.swing.JPasswordField Txt_contraseña;
-    private javax.swing.JTextField Txt_nombre;
-    private javax.swing.JComboBox<String> cbx_Tipo_Users;
+    public javax.swing.JButton Btn_crear;
+    public javax.swing.JComboBox<String> Cbx_Tipo;
+    public javax.swing.JTextField Txt_Cedula;
+    public javax.swing.JTextField Txt_Correo;
+    public javax.swing.JTextField Txt_apellido;
+    public javax.swing.JPasswordField Txt_confirmar;
+    public javax.swing.JPasswordField Txt_contraseña;
+    public javax.swing.JTextField Txt_nombre;
+    public javax.swing.JComboBox<String> cbx_Tipo_Users;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
