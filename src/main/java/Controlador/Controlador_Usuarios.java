@@ -40,7 +40,6 @@ public class Controlador_Usuarios implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == Vista_Usu.Btn_crear) {
             ValidarCamposLLenos();
-            insertar();
         }
     }
 
@@ -48,20 +47,29 @@ public class Controlador_Usuarios implements ActionListener {
         String Pass = new String(Vista_Usu.Txt_contraseña.getPassword());
         String ValPass = new String(Vista_Usu.Txt_confirmar.getPassword());
         if (Pass.equals(ValPass)) {
-            int Tipo_users = Vista_Usu.cbx_Tipo_Users.getSelectedIndex() + 1;
-            String NuevoPass = hash.sha1(Pass);
-            U.setNombre(Vista_Usu.Txt_nombre.getText());
-            U.setApellido(Vista_Usu.Txt_apellido.getText());
-            U.setTipo_Doc(Vista_Usu.Cbx_Tipo.getSelectedItem().toString());
-            int Cedula = Integer.parseInt(Vista_Usu.Txt_Cedula.getText());
-            U.setCedula(Cedula);
-            U.setCorreo(Vista_Usu.Txt_Correo.getText());
-            U.setPassword(NuevoPass);
-            U.setTipo_user(Tipo_users);
-            if (Consulta.registrar(U)) {
-                JOptionPane.showMessageDialog(null, "registradp correctamente");
+            if (Consulta.existe_Usuarios(Vista_Usu.Txt_nombre.getText()) == 0) {
+                if (Consulta.validarEmail(Vista_Usu.Txt_Correo.getText())) {
+                    int Tipo_users = Vista_Usu.cbx_Tipo_Users.getSelectedIndex() + 1;
+                    String NuevoPass = hash.sha1(Pass);
+                    U.setNombre(Vista_Usu.Txt_nombre.getText());
+                    U.setApellido(Vista_Usu.Txt_apellido.getText());
+                    U.setTipo_Doc(Vista_Usu.Cbx_Tipo.getSelectedItem().toString());
+                    int Cedula = Integer.parseInt(Vista_Usu.Txt_Cedula.getText());
+                    U.setCedula(Cedula);
+                    U.setCorreo(Vista_Usu.Txt_Correo.getText());
+                    U.setPassword(NuevoPass);
+                    U.setTipo_user(Tipo_users);
+                    if (Consulta.registrar(U)) {
+                        JOptionPane.showMessageDialog(null, "registrado correctamente");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "no registro correctamente");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "el correo eslectronico no es valido");
+
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "no registradp correctamente");
+                JOptionPane.showMessageDialog(null, "El usuario ya existe");
 
             }
         } else {
@@ -90,7 +98,10 @@ public class Controlador_Usuarios implements ActionListener {
             JOptionPane.showMessageDialog(null, "llene los campos");
         } else if (!esNumero(Vista_Usu.Txt_Cedula.getText())) {
             JOptionPane.showMessageDialog(null, "El campo Cédula debe contener solo números.");
-        } 
+        } else {
+            insertar();
+        }
     }
+    
 
 }
