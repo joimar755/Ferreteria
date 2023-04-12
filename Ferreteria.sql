@@ -1,4 +1,4 @@
--- DROP SCHEMA dbo;
+-- DROP SCHEMA dbo1;
 
 CREATE SCHEMA dbo;
 -- Facturacion.dbo.Departamentos definition
