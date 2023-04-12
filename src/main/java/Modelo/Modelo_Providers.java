@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 
-import Modelo.Modelo_Persona;
-import java.util.Date;
-
-import Modelo.Modelo_Persona;
 
 import java.util.Date;
 
