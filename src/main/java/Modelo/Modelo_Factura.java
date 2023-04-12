@@ -18,7 +18,7 @@ public class Modelo_Factura {
         String[] title = {"id", "Nombre Del Producto", "Cantidad", "valor", "total"};
         dtm.setColumnIdentifiers(title);
         vistaFactura.Tabla_Fac.setModel(dtm);
-
+        
     }
-
+    
 }
