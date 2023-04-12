@@ -36,14 +36,14 @@ public class Ferreteria {
         Controlador_Usuarios controlador = new Controlador_Usuarios(r, users, consulta, encrypt);
         Controlador_Factura controlador_F = new Controlador_Factura(factura, P, Consulta_factura, F);
         controlador.iniciar();
-        r.setVisible(false);
+        r.setVisible(true);
         inicio.setVisible(false);
-        factura.setVisible(true);
+        factura.setVisible(false);
 
-        /* 
+       /* 
        Vista_Inicio v = new Vista_Inicio();
        v.setTitle("nuevo Contacto");
        v.setVisible(true);
-         */
+        */
     }
 }
